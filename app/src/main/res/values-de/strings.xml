@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="tv_status_start">Spieler %1$s ist dran</string>
+    <string name="tv_status_win">Spieler %1$s hat gewonnen</string>
+    <string name="tv_status_draw">Unentschieden</string>
+</resources>

@@ -20,7 +20,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toEndOf="@+id/tv_status"
         app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
@@ -35,6 +36,7 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
+                android:onClick="onClick"
                 android:textSize="34sp"
                 tools:text="X" />
 
@@ -47,6 +49,7 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
+                android:onClick="onClick"
                 android:textSize="34sp"
                 tools:text="X" />
 
@@ -57,6 +60,7 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
+                android:onClick="onClick"
                 android:textSize="34sp"
                 tools:text="X" />
         </TableRow>
@@ -75,6 +79,7 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
+                android:onClick="onClick"
                 android:textSize="34sp"
                 tools:text="X" />
 
@@ -89,6 +94,7 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
+                android:onClick="onClick"
                 android:textSize="34sp"
                 tools:text="X" />
 
@@ -101,6 +107,7 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
+                android:onClick="onClick"
                 android:textSize="34sp"
                 tools:text="X" />
         </TableRow>
@@ -117,6 +124,7 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
+                android:onClick="onClick"
                 android:textSize="34sp"
                 tools:text="X" />
 
@@ -129,6 +137,7 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
+                android:onClick="onClick"
                 android:textSize="34sp"
                 tools:text="X" />
 
@@ -139,6 +148,7 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
+                android:onClick="onClick"
                 android:textSize="34sp"
                 tools:text="X" />
         </TableRow>
@@ -151,10 +161,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="@string/tv_status_start"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/spielfeld"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
