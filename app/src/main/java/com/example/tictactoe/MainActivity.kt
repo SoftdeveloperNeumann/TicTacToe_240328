@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     fun onClick(view: View) {
         val textview = view as TextView
 
-        if (!isPlaying){
+        if (!isPlaying) {
             resetGame()
             return
         }
@@ -40,16 +40,16 @@ class MainActivity : AppCompatActivity() {
             )
             textview.text = currentPlayer
 
-            if(checkWin()){
+            if (checkWin()) {
                 binding.tvStatus.text = getString(R.string.tv_status_win, currentPlayer)
                 isPlaying = false
-            }else if(allFields.all { it.text != "" }){
+            } else if (allFields.all { it.text != "" }) {
                 binding.tvStatus.text = getString(R.string.tv_status_draw)
                 isPlaying = false
 
-            }else{
+            } else {
                 currentPlayer = if (currentPlayer == "X") "O" else "X"
-                binding.tvStatus.text = getString(R.string.tv_status_start,currentPlayer)
+                binding.tvStatus.text = getString(R.string.tv_status_start, currentPlayer)
             }
 
         }
@@ -57,8 +57,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkWin(): Boolean {
+        with(binding) {
+            val horizontal =
+                (f0.text == f1.text && f1.text == f2.text && f0.text != "") ||
+                        (f3.text == f4.text && f4.text == f5.text && f3.text != "") ||
+                        (f6.text == f7.text && f7.text == f8.text && f6.text != "")
 
-        return false
+            val vertical =
+                (f0.text == f3.text && f3.text == f6.text && f0.text != "") ||
+                        (f1.text == f4.text && f4.text == f7.text && f1.text != "") ||
+                        (f2.text == f5.text && f5.text == f8.text && f2.text != "")
+
+            val diagonal =
+                (f0.text == f4.text && f4.text == f8.text && f0.text != "") ||
+                        (f2.text == f4.text && f4.text == f6.text && f2.text != "")
+
+            return horizontal || vertical || diagonal
+        }
+
     }
 
     fun resetGame() {
@@ -66,5 +82,8 @@ class MainActivity : AppCompatActivity() {
         binding.tvStatus.text = getString(R.string.tv_status_start, currentPlayer)
         allFields.forEach { it.text = "" }
         isPlaying = true
+
     }
+
+
 }
