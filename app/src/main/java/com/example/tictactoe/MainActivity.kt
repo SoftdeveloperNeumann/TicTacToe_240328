@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private var currentPlayer = "X"
     lateinit var allFields: Array<TextView>
+    var isPlaying = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,22 +29,42 @@ class MainActivity : AppCompatActivity() {
     fun onClick(view: View) {
         val textview = view as TextView
 
+        if (!isPlaying){
+            resetGame()
+            return
+        }
+
         if (textview.text == "") {
             if (currentPlayer == "X") textview.setTextColor(Color.GREEN) else textview.setTextColor(
                 Color.RED
             )
             textview.text = currentPlayer
 
-            currentPlayer = if (currentPlayer == "X") "O" else "X"
+            if(checkWin()){
+                binding.tvStatus.text = getString(R.string.tv_status_win, currentPlayer)
+                isPlaying = false
+            }else if(allFields.all { it.text != "" }){
+                binding.tvStatus.text = getString(R.string.tv_status_draw)
+                isPlaying = false
 
-            if(allFields.all { it.text != "" }){
-                resetGame()
+            }else{
+                currentPlayer = if (currentPlayer == "X") "O" else "X"
+                binding.tvStatus.text = getString(R.string.tv_status_start,currentPlayer)
             }
+
         }
 
     }
 
+    private fun checkWin(): Boolean {
+
+        return false
+    }
+
     fun resetGame() {
+        currentPlayer = "X"
+        binding.tvStatus.text = getString(R.string.tv_status_start, currentPlayer)
         allFields.forEach { it.text = "" }
+        isPlaying = true
     }
 }
